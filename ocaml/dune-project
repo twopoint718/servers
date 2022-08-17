@@ -1,0 +1,26 @@
+(lang dune 3.2)
+
+(name httpd)
+
+(generate_opam_files true)
+
+(source
+ (github twopoint718/servers))
+
+(authors "Christopher Wilson")
+
+(maintainers "Christopher Wilson")
+
+(license LICENSE)
+
+(documentation https://github.com/twopoint718/servers/wiki)
+
+(package
+ (name httpd)
+ (synopsis "A bare-bones HTTP server (almost) from scratch")
+ (description "A bare-bones HTTP server (almost) from scratch")
+ (depends main misc)
+ (tags
+  (topics "http")))
+
+; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project

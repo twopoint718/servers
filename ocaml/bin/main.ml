@@ -1,10 +1,7 @@
 (** Code adapted from "Unix system programming in OCaml"
   * by Xavier Leroy and Didier Rémy
   *)
-open Sys
 open Unix
-open Misc
-open Str
 
 let status_message num =
   match num with
@@ -39,26 +36,6 @@ let parse_request req =
 
 module StringMap = Map.Make(String)
 (* module VerbMap = Map.Make(String) *)
-let routes = StringMap.empty
-  |> StringMap.add_seq (List.to_seq [
-    "/redirect", StringMap.singleton "GET" (status 301 ~hdrs:["Location: http://127.0.0.1:5000/simple_get"]);
-    "/method_options", StringMap.singleton "OPTIONS" (status 200 ~hdrs:["Allow: GET, HEAD, OPTIONS"]);
-    "/method_options2", StringMap.singleton "OPTIONS" (status 200 ~hdrs:["Allow: GET, HEAD, OPTIONS, PUT, POST"]);
-    "/head_request", StringMap.empty
-    |> StringMap.add "GET" (status 405 ~hdrs:["Allow: HEAD, OPTIONS"])
-    ])
-
-let find_route path verb =
-  let with_path k _ = k = path in
-  let with_verb k _ = k = verb in
-  if StringMap.exists with_path routes then
-    let route = StringMap.find path routes in
-    if StringMap.exists with_verb route then
-      StringMap.find verb route
-    else
-      status 405
-  else
-    status 404
 
 let handler (str: string): string =
   match parse_request str with
@@ -106,7 +83,7 @@ let server () =
   let port = int_of_string Sys.argv.(1) in
   let host = (gethostbyname("localhost")).h_addr_list.(0) in
   let addr = ADDR_INET (host, port) in
-  let treat sock (client_sock, client_addr as client) =
+  let treat sock (_, client_addr as client) =
     begin match client_addr with
     | ADDR_INET(caller, _) ->
       prerr_endline ("* Connection from " ^ string_of_inet_addr caller);
@@ -117,8 +94,8 @@ let server () =
       let num_read = read s buf 0 1024 in
       let str = String.sub (Bytes.to_string buf) 0 num_read in
       let response = handler str in
+      let _ = write_substring s response 0 (String.length response) in
       prerr_string ("> " ^ response);
-      write_substring s response 0 (String.length response)
     in
     Misc.double_fork_treatment sock service client in
   begin match addr with

@@ -1,0 +1,4 @@
+(executable
+ (public_name httpd)
+ (name main)
+ (libraries misc str unix))
