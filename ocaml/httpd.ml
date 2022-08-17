@@ -1,3 +1,6 @@
+(** Code adapted from "Unix system programming in OCaml"
+  * by Xavier Leroy and Didier Rémy
+  *)
 open Sys
 open Unix
 open Misc

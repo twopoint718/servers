@@ -1,4 +1,6 @@
-
+(** Code taken from "Unix system programming in OCaml"
+  * by Xavier Leroy and Didier Rémy
+  *)
 open Unix
 open Sys
 
