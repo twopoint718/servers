@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1700.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "httpd", "httpd\httpd.fsproj", "{8AA8AFD6-B483-4884-9FB9-9FBD8DA8C927}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "test", "httpd.tests\test.fsproj", "{7D4DFA97-9578-4EDF-B3EF-4DF7BC7A15C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AA8AFD6-B483-4884-9FB9-9FBD8DA8C927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA8AFD6-B483-4884-9FB9-9FBD8DA8C927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA8AFD6-B483-4884-9FB9-9FBD8DA8C927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA8AFD6-B483-4884-9FB9-9FBD8DA8C927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4DFA97-9578-4EDF-B3EF-4DF7BC7A15C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4DFA97-9578-4EDF-B3EF-4DF7BC7A15C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4DFA97-9578-4EDF-B3EF-4DF7BC7A15C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4DFA97-9578-4EDF-B3EF-4DF7BC7A15C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8893152-3363-4EBA-A93E-608CF3BCC4E9}
+	EndGlobalSection
+EndGlobal
